@@ -43,14 +43,14 @@ export default function Nav() {
       <h1>
         <Link href="/">Bella Lee</Link>
       </h1>
-      <button
+      {/* <button
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
         className={styles.hamburger}>
         <FontAwesomeIcon icon={faBars} size="2x" />
-      </button>
-      <ul className={cx(styles.menu, isNavExpanded ? null : styles.menu.hidden)}>
+      </button> */}
+      <ul className={styles.menu}>
         {renderLinks}
       </ul>
     </nav>
