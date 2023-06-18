@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <section className={styles.hero}>
         <p>Sophomore studying Informatics at the University of Washington striving to make information more intuitive, available, and enjoyable to consume.</p>
       </section>
@@ -16,6 +16,6 @@ export default function Home() {
       <section className="footer">
         &copy; Bella Lee 2023.
       </section>
-    </>
+    </main>
   )
 }

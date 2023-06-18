@@ -1,9 +1,14 @@
 @import 'variables';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: 'Barlow', sans-serif;
   margin: 0;
   color: $black;
+  background-color: $white;
 }
 
 section {
@@ -27,23 +32,22 @@ section {
   align-items: center;
   justify-content: center;
   border-style: solid;
-  border-width: 2px;  
+  border-width: 2px;
   border-color: black;
   border-radius: 75px;
 
   -webkit-transform-origin: 50% 50%;
-  -moz-transform-origin:   50% 50%;
-  -o-transform-origin:      50% 50%;
-  -ms-transform-origin:   50% 50%;
-  transform-origin:       50% 50%;
-  
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
   -webkit-transform: translate(-50%, -50%);
-  -moz-transform:  translate(-50%, -50%);
-  -o-transform:    translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  transform:      translate(-50%, -50%);
-  
-  
+  transform: translate(-50%, -50%);
+
   will-change: width, height, transform, border;
   z-index: 999;
   pointer-events: none;

@@ -3,7 +3,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/css/Nav.module.css';
-import cx from 'classnames';
 
 const links = [
   {
@@ -16,7 +15,7 @@ const links = [
   },
 ];
 
-export default function Nav() {
+export default function Nav({ children }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   useEffect(() => {
