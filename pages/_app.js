@@ -1,12 +1,7 @@
-import 'bootstrap/dist/css/bootstrap-grid.css'
-import '@/styles/css/styles.css'
-import Nav from '@/components/Nav';
+import '../styles/globals.css'
 
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <Nav />
-      <Component {...pageProps} />
-    </>
-  )
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
+
+export default MyApp
