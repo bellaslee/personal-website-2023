@@ -1,11 +1,53 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { Barlow } from 'next/font/google'
+import { gsap } from 'gsap'
+import LoadingScreen from '@/components/LoadingScreen'
+import { useLayoutEffect, useRef } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+import { useIsomorphicLayoutEffect } from '../helpers/useIsomorphicEffect';
+import TestComponent from '@/components/TestComponent'
+
+const barlow = Barlow({ weight: ['400', '700', '900'], subsets: ['latin'] })
 
 export default function Home() {
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   // callback function to call when event triggers
+  //   const onPageLoad = () => {
+  //     console.log('page loaded');
+  //     setLoading(false);
+  //   };
+
+  //   // Check if the page has already loaded
+  //   if (document.readyState === 'complete') {
+  //     onPageLoad();
+  //   } else {
+  //     window.addEventListener('load', onPageLoad, false);
+  //     // Remove the event listener when component unmounts
+  //     return () => window.removeEventListener('load', onPageLoad);
+  //   }
+  // }, []);
+
+  const comp = useRef();
+  // const didAnimate = useRef(false);
+
+  useLayoutEffect(() => {
+    // if (didAnimate.current) {
+    //   return;
+    // }
+    // didAnimate.current = true;
+    let ctx = gsap.context(() => {
+      gsap.from('.hero', {
+        duration: 1,
+        opacity: 0
+      })
+    }, comp)
+
+    return ctx.revert();
+  }, []);
+
   return (
     <>
       <Head>
@@ -14,101 +56,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+      <LoadingScreen />
+      {/* <TestComponent /> */}
+      <header className={barlow.className}>
+        <h1>Bella Lee</h1>
+      </header>
+      <main className={barlow.className} ref={comp}>
+        <section className="hero">Hero</section>
+        <section className="about">
+          00. About
+          01. artist
+          02. book lover
+          03. tarot enthusiast
+        </section>
+        <section className="projects">Projects</section>
       </main>
+      <footer className={barlow.className}>
+        <ul>
+          <li>email</li>
+          <li>Linkedin</li>
+          <li>Github</li>
+          <li>Goodreads</li>
+        </ul>
+        &copy; Bella Lee 2023
+      </footer>
     </>
   )
 }

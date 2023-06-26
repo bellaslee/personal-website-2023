@@ -1,0 +1,31 @@
+@use 'variables';
+@use 'LoadingScreen';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+section {
+  height: 100vh;
+}
+
+footer {
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  margin: 1rem;
+}
