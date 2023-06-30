@@ -1,44 +1,44 @@
 import Image from "next/image";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import { useIsomorphicLayoutEffect } from '../helpers/useIsomorphicEffect';
 
 export default function LoadingScreen() {
   const comp = useRef();
-  const left = useRef();
-  const tl = useRef();
-  const didAnimate = useRef(false);
+  const [left, setLeft] = useState();
+  const [right, setRight] = useState();
+  const [img, setImg] = useState();
 
   useIsomorphicLayoutEffect(() => {
-    if (didAnimate.current) {
-      return;
-    }
-    didAnimate.current = true;
-    let ctx = gsap.context(() => {
-      tl.current = gsap
-        .timeline({
-          defaults: {
-            duration: 1
-          }
-        })
-        .to('.left', {
-          x: '-100vw'
-        })
-        .to('.right', {
-          x: '100vw'
-        }, '<')
-    }, comp);
-
-    return ctx.revert();
-  }, []);
+    if (!left || !right || !img) return;
+    gsap
+      .timeline({
+        defaults: {
+          duration: 1,
+          ease: 'power1.out'
+        }
+      })
+      .to(img, {
+        y: '-75vh',
+        display: 'none'
+      })
+      .to(left, {
+        x: '-100%',
+        display: 'none'
+      })
+      .to(right, {
+        x: '100%',
+        display: 'none'
+      }, '<')
+  }, [left, right]);
 
   return (
     <div className='loading-screen' ref={comp}>
-      <div className='panel left' ref={left}></div>
-      <div className='img'>
-        placeholder
+      <div className='panel left' ref={setLeft}></div>
+      <div className='img' ref={setImg}>
+        bee
       </div>
-      <div className='panel right'></div>
+      <div className='panel right' ref={setRight}></div>
     </div>
   )
 }
