@@ -33,10 +33,6 @@ header {
   a {
     color: variables.$white;
     text-decoration: none;
-
-    &:hover {
-      color: variables.$white;
-    }
   }
 
   nav {
@@ -94,7 +90,7 @@ a {
   transition: 0.2s;
 
   &:hover {
-    color: variables.$blue;
+    text-shadow: 1px 1px 0 variables.$black30;
   }
 
   :visited {

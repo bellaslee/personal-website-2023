@@ -1,8 +1,7 @@
-import Meta from "@/components/Meta";
 import React from "react";
-import Link from "next/link";
 import { getPosts } from '../../scripts/utils';
 import { useState } from "react";
+import Meta from "@/components/Meta";
 import PostItem from "@/components/PostItem";
 import styles from "@/styles/BlogHome.module.scss";
 
@@ -30,16 +29,19 @@ export default function Blog({ posts }) {
 
 
   return (
-    <section>
-      <div className="content">
-        <h2>Blog</h2>
-        {filteredPosts.map((post) => (
-          <PostItem key={post.slug} post={post} />
-        ))}
-        <button className={styles.button} onClick={loadMorePosts}>
-          Load more
-        </button>
-      </div>
-    </section>
+    <>
+      <Meta title="Blog | Bella Lee" />
+      <section>
+        <div className="content">
+          <h2>Blog</h2>
+          {filteredPosts.map((post) => (
+            <PostItem key={post.slug} post={post} />
+          ))}
+          <button className={styles.button} onClick={loadMorePosts}>
+            Load more
+          </button>
+        </div>
+      </section>
+    </>
   );
 };
