@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useRef, useState } from "react";
-import { useIsomorphicLayoutEffect } from '../helpers/useIsomorphicEffect';
+import { useIsomorphicLayoutEffect } from '@/helpers/useIsomorphicEffect';
+import styles from '@/styles/LoadingScreen.module.scss'
 
-export default function LoadingScreen({ done }) {
+export default function LoadingScreen({ done, setHasShownLoader }) {
   const comp = useRef();
   const [left, setLeft] = useState();
   const [right, setRight] = useState();
@@ -57,15 +58,18 @@ export default function LoadingScreen({ done }) {
         x: '100%',
         display: 'none'
       }, '<')
+      .then(() => {
+        setHasShownLoader(true)
+      });
   }
 
   return (
-    <div className='loading-screen' ref={comp}>
-      <div className='panel left' ref={setLeft}></div>
-      <div className='img' ref={setImg}>
+    <div className={styles.loadingScreen} ref={comp}>
+      <div className={`${styles.panel} ${styles.left}`} ref={setLeft}></div>
+      <div className={styles.img} ref={setImg}>
         bee
       </div>
-      <div className='panel right' ref={setRight}></div>
+      <div className={`${styles.panel} ${styles.right}`} ref={setRight}></div>
     </div>
   )
 }

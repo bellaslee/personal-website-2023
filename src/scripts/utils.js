@@ -2,8 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+// TODO: sort posts by date
 export function getPosts(pageIndex) {
-  const dirFiles = fs.readdirSync(path.join(process.cwd(), 'pages', 'posts'), {
+  const relativePath = 'src/pages/blog/posts'
+  const dir = path.resolve(process.cwd(), relativePath)
+  const dirFiles = fs.readdirSync(dir, {
     withFileTypes: true,
   });
 
@@ -12,7 +15,7 @@ export function getPosts(pageIndex) {
       if (!file.name.endsWith('.mdx')) return;
 
       const fileContent = fs.readFileSync(
-        path.join(process.cwd(), 'pages', 'posts', file.name),
+        path.join(process.cwd(), relativePath, file.name),
         'utf-8'
       );
       const { data, content } = matter(fileContent);
@@ -20,9 +23,19 @@ export function getPosts(pageIndex) {
       const slug = file.name.replace(/.mdx$/, '');
       return { data, content, slug };
     })
-    .filter((post) => post);
+    .filter((post) => post)
+    .sort((a, b) => {
+      const aDate = new Date(a.data.publishedOn);
+      const bDate = new Date(b.data.publishedOn);
+      if (aDate > bDate) {
+        return -1;
+      } else if (aDate === bDate) {
+        return 0;
+      }
+      return 1;
+    });
 
-  return posts
+  return filterPostsByPageIndex(posts, pageIndex);
 };
 
 function filterPostsByPageIndex(posts, pageIndex) {
@@ -33,7 +46,8 @@ function filterPostsByPageIndex(posts, pageIndex) {
   // get the total posts from page 1 to previous page
   const prevPagePosts = totalPagePosts - postPerPage;
 
-  return posts.filter(
-    (post, index) => index < totalPagePosts && index >= prevPagePosts
-  );
+  return posts
+    .filter(
+      (post, index) => index < totalPagePosts && index >= prevPagePosts
+    );
 };

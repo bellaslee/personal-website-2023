@@ -1,31 +1,156 @@
 @use 'variables';
-@use 'LoadingScreen';
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Barlow', sans-serif;
-  min-height: 100vh;
+  font-family: sans-serif;
+  color: variables.$black;
+  background-color: variables.$white;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  mix-blend-mode: difference;
+
+  a {
+    color: variables.$white;
+    text-decoration: none;
+
+    &:hover {
+      color: variables.$white;
+    }
+  }
+
+  nav {
+    ul {
+      li {
+        margin: 0 0.5rem;
+      }
+    }
+  }
 }
 
 main {
   flex-grow: 1;
-}
+  min-height: 100vh;
 
-section {
-  height: 100vh;
+  p {
+    &.big {
+      font-size: 2rem;
+    }
+  }
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  p {
+    text-align: center;
+  }
 }
 
-.box {
-  height: 100px;
-  width: 100px;
-  background-color: red;
-  margin: 1rem;
+footer,
+nav {
+  ul {
+    width: 100%;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  padding: 8rem 2rem;
+}
+
+a {
+  text-decoration: underline wavy;
+  color: variables.$red;
+  transition: 0.2s;
+
+  &:hover {
+    color: variables.$blue;
+  }
+
+  :visited {
+    color: inherit;
+  }
+}
+
+svg {
+  transform: translateY(1px);
+}
+
+.bg {
+  &-black {
+    color: variables.$white;
+    background-color: variables.$black;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    justify-content: flex-start;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  main {
+    p {
+      &.big {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  footer {
+    ul {
+      width: 50vw;
+    }
+  }
+
+  section {
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    .content {
+      width: 33%;
+      margin-right: 15%;
+      margin-left: auto;
+    }
+  }
 }

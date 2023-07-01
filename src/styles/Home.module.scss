@@ -1,0 +1,17 @@
+@use 'variables';
+
+.hero {
+  justify-content: flex-end;
+
+  p {
+    &:nth-child(2) {
+      text-align: right;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .hero {
+    min-height: 85vh;
+  }
+}
