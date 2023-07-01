@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.0.0-rc.2",
+    "@mdx-js/react": "^2.0.0-rc.2",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.12.1",
     "next": "13.4.7",
     "next-transpile-modules": "^10.0.0",
     "react": "^18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rehype-highlight": "^6.0.0",
+    "remark": "^14.0.3",
+    "remark-frontmatter": "^4.0.1",
+    "remark-html": "^15.0.2"
   },
   "devDependencies": {
     "sass": "^1.63.6"
