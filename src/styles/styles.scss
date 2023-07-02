@@ -77,6 +77,10 @@ main {
       line-height: normal;
     }
   }
+
+  ul, ol {
+    line-height: 2rem;
+  }
 }
 
 footer {
@@ -106,10 +110,23 @@ section {
   flex-direction: column;
   min-height: 50vh;
   padding: 8rem 2rem;
+
+  .content {
+    figure {
+      margin: 0.5rem;
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 a {
   text-decoration: underline wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
   color: variables.$red;
   transition: 0.2s;
   position: relative;

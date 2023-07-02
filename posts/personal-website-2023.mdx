@@ -1,0 +1,86 @@
+---
+title: Process and Attributions
+date: '2023-07-01T19:59:00.000'
+excerpt:
+  'Process and takeaways from designing the 2023 version of my personal website.'
+tags: ['site-documentation', 'projects']
+---
+
+## languages used
+
+Next.js, GSAP, MDX
+
+## process
+
+### learning GSAP
+
+I coded my website from scratch last year to learn React, but I was quite new to
+web development, so I didn't know animation frameworks existed. I ended up using
+CSS animations and Javascript to figure out scroll-triggered animation. Earlier
+this year, I emailed my favorite web design studio,
+[Antinomy Studio](https://antinomy.studio/) to ask how they did their
+animations. Their technical director, Baptiste, kindly got back to me and let me
+know that they work with Nuxt.js and GSAP. I was surprised (and very touched)
+that I got a reply, and promptly looked into their tools of trade. Since my
+priority was designing cool animations, I decided to learn GSAP first, hence
+this website rebuild.
+
+I learned GSAP by making this atrocity!
+![gif of my first GSAP attempt](/img/learn-gsap.gif)
+
+Since I had experience with animation timelines and keyframes from fiddling with
+CSS last year, the rest was pretty intuitive to pick up. I was so glad that GSAP
+has pretty clear documentation and examples on their website.
+
+It was challenging to figure out how to get animations to work with React's
+useEffect hook. The solution provided in the docs did not work for me, so I had
+to comb through the forums to mix and match other solution. That took me five
+hours to figure out, but after I did, I found out that I didn't even need it yet
+at that point... sigh... but I did end up using it later, so the effort was not
+wasted!
+
+### the blog
+
+I decided to create a blog so I could both document my process and have an
+outlet for my urge to write comparative analyses for the media I consume. If I
+don't end up writing any essays and posting them, at least I know how to build a
+blog now!
+
+I found that the features from the simple tutorial I followed weren't
+sophisticated enough for my liking. I took a look at
+[the Next.js blog starter template](https://vercel.com/templates/next.js/blog-starter-kit),
+as well as
+[this template](https://github.com/wutali/nextjs-netlify-blog-template) that I
+found through a friend, and found they way they structured things much more
+elegant. I found
+[this tutorial](https://blog.nrwl.io/read-and-render-md-files-with-next-js-and-nx-89a85c1d9b44)
+that showed me how to use frontmatter just the way I wanted to. However, the
+issue is that I don't know Typescript yet (it's on my to-do list but who knows
+when I'll get to it), so I had to figure out how to identify key elements and
+replicate them with Javascript. I learned a lot about how Next.js works and how
+to use API calls, getStaticProps, and getStaticPaths.
+
+## conclusion
+
+I'd say my code is _way_ cleaner than
+[last year's iteration](https://github.com/bellaslee/personal-website-2022), but
+I'm sure I can do even better next time!
+
+I can't help but compare my work to those amazing websites I see on
+awwwards.com, but I have to remind myself that I'm just starting out, and I'll
+get there eventually.
+
+## references and attributions
+
+- GSAP & animations
+  - [Learn GSAP in 23 Minutes](https://www.youtube.com/watch?v=m6PDUIF24v4)
+  - [Introducing ScrollTrigger for GSAP](https://www.youtube.com/watch?v=X7IBa7vZjmo)
+  - [How SVG Line Animation Works](https://css-tricks.com/svg-line-animation-works/)
+- MDX blog structure
+  - [Vercel Blog Starter Kit](https://vercel.com/templates/next.js/blog-starter-kit)
+  - [Next.js blogging template for Netlify](https://github.com/wutali/nextjs-netlify-blog-template)
+  - [Create a Next.js and MDX blog](https://blog.logrocket.com/create-next-js-mdx-blog/)
+  - [Read and render MD files with Next.js and Nx](https://blog.nrwl.io/read-and-render-md-files-with-next-js-and-nx-89a85c1d9b44)
+- assets
+  - bee image on loading screen by
+    [Freepik](https://www.freepik.com/free-vector/hand-drawn-stencil-element-collection_32177634.htm#query=bee&position=38&from_view=keyword&track=sph)
