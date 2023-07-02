@@ -60,7 +60,6 @@ export default function PostList({ posts, tags, header, back }) {
 
   return (
     <>
-      <Meta title="Blog | Bella Lee" />
       <section ref={setBlog}>
         <div className="content">
           {back ? <BackButton /> : ''}

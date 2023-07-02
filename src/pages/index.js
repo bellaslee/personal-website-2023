@@ -55,7 +55,6 @@ export default function Home({ hasShownLoader, setHasShownLoader, posts }) {
   return (
     <>
       <Meta title="Bella Lee" />
-
       {hasShownLoader ? '' : <LoadingScreen done={!loading} setHasShownLoader={setHasShownLoader} />}
 
       <section className={`${styles.hero}`} ref={setHero}>

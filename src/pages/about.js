@@ -12,6 +12,8 @@ import wolfwood from "../../public/img/wolfwood.jpeg";
 import angel from "../../public/img/angel.png";
 import styles from "@/styles/About.module.scss";
 
+import Meta from "@/components/Meta";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutIntro() {
@@ -145,6 +147,7 @@ function AboutBooks() {
 export default function About() {
   return (
     <>
+      <Meta title="About | Bella Lee" />
       <AboutIntro />
       <AboutArt />
       {/* <AboutBooks /> */}

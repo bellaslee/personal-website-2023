@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+
 import { getPosts } from "@/helpers/utils";
 import tagList from "@/data/tags.json"
+
 import PostList from "@/components/PostList";
+import Meta from "@/components/Meta";
 
 export const getStaticProps = ({ params }) => {
   const posts = getPosts(1, params.tag);
@@ -30,6 +33,9 @@ export const getStaticPaths = () => {
 
 export default function Tags({ posts }) {
   return (
-    <PostList posts={posts} back header />
+    <>
+      <Meta title="Tags | Bella Lee" />
+      <PostList posts={posts} back header />
+    </>
   );
 };

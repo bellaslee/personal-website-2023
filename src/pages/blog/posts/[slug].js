@@ -1,10 +1,14 @@
 import fs from "fs";
 import path from "path";
 import React from "react";
+
 import { getParsedFileContentBySlug, renderMarkdown } from "@/helpers/markdown";
-import { FormatMeta } from "@/components/FormatMeta";
+
 import styles from "@/styles/Blog.module.scss";
+
+import { FormatMeta } from "@/components/FormatMeta";
 import BackButton from "@/components/BackButton";
+import Meta from "@/components/Meta";
 
 const POST_DIR = path.join(process.cwd(), 'posts/');
 
@@ -38,6 +42,7 @@ export const getStaticPaths = () => {
 export default function Post({ data, content }) {
   return (
     <>
+      <Meta title={`${data.title} | Bella Lee`} />
       <section>
         <div className="content">
           <BackButton />

@@ -1,5 +1,8 @@
 import React from "react";
+
 import { getPosts } from '../../helpers/utils';
+
+import Meta from "@/components/Meta";
 import PostList from "@/components/PostList";
 
 export const getStaticProps = () => {
@@ -14,6 +17,9 @@ export const getStaticProps = () => {
 
 export default function Blog({ posts }) {
   return (
-    <PostList posts={posts} tags header />
+    <>
+      <Meta title="Blog | Bella Lee" />
+      <PostList posts={posts} tags header />
+    </>
   );
 };
