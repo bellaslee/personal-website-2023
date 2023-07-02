@@ -84,7 +84,7 @@ function AboutArt() {
         xPercent: window.innerWidth > 992 ? 15 : 0,
         y: window.innerWidth > 992 ? -ww.clientHeight * 0.73 : 0,
         scale: window.innerWidth > 1260 ? 1.5 : 2,
-        rotate: window.innerWidth > 992 ? 40 : 0,
+        rotate: window.innerWidth > 992 ? 15 : 0,
         filter: window.innerWidth > 992 ? "" : "blur(10px)",
         opacity: window.innerWidth > 992 ? 1 : 0,
       })

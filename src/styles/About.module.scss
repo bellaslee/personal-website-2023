@@ -34,6 +34,8 @@
     background-color: variables.$black;
     padding: 1rem;
     border-radius: 10px;
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -62,10 +64,10 @@
   .intro {
     flex-direction: row;
 
-img {
-    width: 30%;
-    height: auto;
-  }
+    img {
+      width: 30%;
+      height: auto;
+    }
 
     .content {
       width: 37%;
