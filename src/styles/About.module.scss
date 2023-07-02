@@ -3,6 +3,11 @@
 .intro {
   align-items: center;
   justify-content: center;
+
+  img {
+    width: 75%;
+    height: auto;
+  }
 }
 
 .art {
@@ -53,14 +58,14 @@
   .books {
     min-height: 100vh;
   }
-  
+
   .intro {
     flex-direction: row;
 
-    img {
-      height: 75%;
-      width: auto;
-    }
+img {
+    width: 30%;
+    height: auto;
+  }
 
     .content {
       width: 37%;

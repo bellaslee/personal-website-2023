@@ -1,13 +1,16 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
+import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
+
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 import wolfwood from "../../public/img/wolfwood.jpeg";
 import angel from "../../public/img/angel.png";
 import styles from "@/styles/About.module.scss";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,7 +49,13 @@ function AboutIntro() {
 
   return (
     <section className={styles.intro} ref={setIntro}>
-      <Image ref={setAngelRef} src={angel} alt="Angel Devil from Chainsaw Man" priority />
+      {/* <div className={styles.imgWrapper}> */}
+        <Image
+          ref={setAngelRef}
+          src={angel}
+          alt="Angel Devil from Chainsaw Man"
+          priority />
+      {/* </div> */}
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
         <p>I&apos;m a freelance illustrator, Informatics student, web developer, and Preisdent of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading (the social media platform that I&apos;m most active on
