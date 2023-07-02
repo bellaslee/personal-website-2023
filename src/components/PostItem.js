@@ -1,21 +1,18 @@
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import styles from '@/styles/BlogHome.module.scss';
+import { FormatMeta } from './FormatMeta';
+import styles from '@/styles/Blog.module.scss';
 
 export default function PostItem({ post }) {
-  const formatDate = (date) => {
-    const newDate = new Date(Date.parse(date)).toLocaleString('en-us', { month: 'short', day: 'numeric', year: 'numeric' });
-    return newDate;
-  }
   return (
-    <div className={styles.postItem}>
-      <h4 className={styles.postTitle}>
+    <article className={styles.postItem}>
+      <h2 className={styles.postTitle}>
         {post.data.title}
-      </h4>
-      <p className={styles.date}>{formatDate(post.data.publishedOn)}</p>
+      </h2>
+      <FormatMeta date={post.data.date} tags={post.data.tags} />
       <p>{post.data.excerpt}</p>
-      <Link href={`/blog/posts/${post.slug}`}>Read more <FontAwesomeIcon icon={faArrowRight} /></Link>
-    </div>
+      <Link href={`/blog/posts/${post.slug}`} className="fancy">Read more <FontAwesomeIcon icon={faArrowRight} /></Link>
+    </article>
   );
 };

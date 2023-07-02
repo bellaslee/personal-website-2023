@@ -41,7 +41,7 @@ export default function Home({ hasShownLoader, setHasShownLoader }) {
             Hello! I am a junior at the University of Washington majoring in Informatics. I hope to make information more accessible, intuitive, and enjoyable to consume through my work.
           </p>
           <p>
-            <Link href="/about">
+            <Link href="/about" className="fancy">
               More about me <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </p>
@@ -49,7 +49,7 @@ export default function Home({ hasShownLoader, setHasShownLoader }) {
       </section>
 
       <section className={`${styles.projects} bg-black`}>
-        <h2>Projects</h2>
+        <h1>Featured Projects</h1>
       </section>
     </>
   )

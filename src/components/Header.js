@@ -4,7 +4,7 @@ import React from "react";
 export default function Header({ font }) {
   return (
     <header className={font.className}>
-      <Link href="/"><h1>Bella Lee</h1></Link>
+      <div className='title'><Link href="/">Bella Lee</Link></div>
       <nav>
         <ul>
           <li>

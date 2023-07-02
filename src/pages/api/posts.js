@@ -1,4 +1,4 @@
-import { getPosts } from '../../scripts/utils';
+import { getPosts } from '../../helpers/utils';
 
 export default function handler(req, res) {
   const { page } = req.query;

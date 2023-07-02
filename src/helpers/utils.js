@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// TODO: sort posts by date
-export function getPosts(pageIndex) {
-  const relativePath = 'src/pages/blog/posts'
-  const dir = path.resolve(process.cwd(), relativePath)
+const POST_DIR = path.join(process.cwd(), 'posts/');
+
+export function getPosts(pageIndex, tag) {
+  const relativePath = './posts';
+  const dir = path.resolve(POST_DIR)
   const dirFiles = fs.readdirSync(dir, {
     withFileTypes: true,
   });
@@ -18,12 +19,20 @@ export function getPosts(pageIndex) {
         path.join(process.cwd(), relativePath, file.name),
         'utf-8'
       );
+      const slug = file.name.replace(/.mdx$/, '');
       const { data, content } = matter(fileContent);
 
-      const slug = file.name.replace(/.mdx$/, '');
       return { data, content, slug };
     })
-    .filter((post) => post)
+    .filter((post) => {
+      if (tag && post.data.tags) {
+        return post.data.tags.includes(tag);
+      } else if (tag) {
+        return false;
+      } else {
+        return true;
+      }
+    })
     .sort((a, b) => {
       const aDate = new Date(a.data.publishedOn);
       const bDate = new Date(b.data.publishedOn);
@@ -51,3 +60,15 @@ function filterPostsByPageIndex(posts, pageIndex) {
       (post, index) => index < totalPagePosts && index >= prevPagePosts
     );
 };
+
+export function getPost(slug) {
+  if (slug) {
+    const file = POST_DIR + slug + '.mdx';
+    const fileContent = fs.readFileSync(
+      file, 'utf-8'
+    );
+    const { data, content } = matter(fileContent);
+    return { data, content };
+  }
+  return {};
+}

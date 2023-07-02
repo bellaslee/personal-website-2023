@@ -15,10 +15,6 @@ body {
 }
 
 h1 {
-  font-size: 1.5rem;
-}
-
-h2 {
   font-size: 2rem;
 }
 
@@ -33,12 +29,37 @@ header {
   a {
     color: variables.$white;
     text-decoration: none;
+
+    &:hover {
+      color: variables.$blue;
+      &::before {
+        content: '♡';
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        color: variables.$blue;
+      }
+    }
   }
 
   nav {
     ul {
       li {
-        margin: 0 0.5rem;
+        margin: 0 0.75rem;
+        position: relative;
+      }
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+
+    a {
+      &:hover {
+        &::before {
+          left: -2rem;
+        }
       }
     }
   }
@@ -49,8 +70,11 @@ main {
   min-height: 100vh;
 
   p {
+    line-height: 1.5rem;
+
     &.big {
       font-size: 2rem;
+      line-height: normal;
     }
   }
 }
@@ -88,18 +112,40 @@ a {
   text-decoration: underline wavy;
   color: variables.$red;
   transition: 0.2s;
+  position: relative;
 
   &:hover {
-    text-shadow: 1px 1px 0 variables.$black30;
+    text-shadow: 1px 1px 0 variables.$black20;
   }
 
   :visited {
     color: inherit;
   }
+
+  &.fancy {
+    &:hover::before {
+      content: '♡';
+      position: absolute;
+      top: 0;
+      left: -1rem;
+      color: variables.$red;
+    }
+  }
+
+  &.normal {
+    color: variables.$black;
+    text-decoration: none;
+  }
 }
 
 svg {
   transform: translateY(1px);
+}
+
+blockquote {
+  border-left: variables.$black 1px solid;
+  padding-left: 1rem;
+  margin: 1rem;
 }
 
 .bg {
@@ -114,7 +160,7 @@ svg {
     justify-content: flex-start;
   }
 
-  h2 {
+  h1 {
     font-size: 3rem;
   }
 
@@ -122,6 +168,18 @@ svg {
     flex-direction: row;
     justify-content: space-between;
     padding: 0 2rem;
+
+    .title {
+      font-size: 1.5rem;
+
+      a {
+        &:hover {
+          &::before {
+            left: -1.5rem;
+          }
+        }
+      }
+    }
   }
 
   main {
@@ -144,7 +202,7 @@ svg {
     padding-bottom: 4rem;
 
     .content {
-      width: 33%;
+      width: 37%;
       margin-right: 15%;
       margin-left: auto;
     }

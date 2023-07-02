@@ -1,5 +1,16 @@
 @use 'variables';
 
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  &::after {
+    content: '♡';
+    padding-top: 1rem;
+  }
+}
+
 .postItem {
   margin-bottom: 3rem;
 }
@@ -24,7 +35,11 @@
   }
 }
 
-.date {
-  font-size: 0.75rem;
+.meta {
+  font-size: 0.85rem;
   margin: 0;
+}
+
+.tag {
+  margin: 0 0.25rem;
 }

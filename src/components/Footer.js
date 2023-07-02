@@ -1,6 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer({ font }) {
   return (
@@ -8,17 +6,17 @@ export default function Footer({ font }) {
       <ul>
         <li>Email</li>
         <li>
-          <a href="https://www.linkedin.com/in/bellasylee/">
+          <a href="https://www.linkedin.com/in/bellasylee/" className="fancy">
             Linkedin
           </a>
         </li>
         <li>
-          <a href="https://github.com/bellaslee">
+          <a href="https://github.com/bellaslee" className="fancy">
             Github
           </a>
         </li>
       </ul>
-      <FontAwesomeIcon icon={faStar} size="xs" />
+      <div>♡</div>
       <p>
         &copy; Bella Lee 2023
       </p>
