@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: sans-serif;
   color: variables.$black;
@@ -13,7 +18,7 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 h1 {

@@ -50,11 +50,11 @@ function AboutIntro() {
   return (
     <section className={styles.intro} ref={setIntro}>
       {/* <div className={styles.imgWrapper}> */}
-        <Image
-          ref={setAngelRef}
-          src={angel}
-          alt="Angel Devil from Chainsaw Man"
-          priority />
+      <Image
+        ref={setAngelRef}
+        src={angel}
+        alt="Angel Devil from Chainsaw Man"
+        priority />
       {/* </div> */}
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
@@ -77,14 +77,17 @@ function AboutArt() {
         scrollTrigger: {
           trigger: ww,
           start: "top top",
-          end: window.innerWidth > 992 ? "80% bottom" : "100% bottom",
+          end: "bottom bottom",
           pin: art,
           scrub: 0.5,
+          markers: true,
         },
-        xPercent: 15,
-        y: window.innerWidth > 992 ? -ww.clientHeight * 0.73 : - ww.clientHeight * 1.2,
+        xPercent: window.innerWidth > 992 ? 15 : 0,
+        y: window.innerWidth > 992 ? -ww.clientHeight * 0.73 : 0,
         scale: window.innerWidth > 1260 ? 1.5 : 2,
         rotate: window.innerWidth > 992 ? 40 : 0,
+        filter: window.innerWidth > 992 ? "" : "blur(10px)",
+        opacity: window.innerWidth > 992 ? 1 : 0,
       })
       gsap.from(artContent, {
         scrollTrigger: {
