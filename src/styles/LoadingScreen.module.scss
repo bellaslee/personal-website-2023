@@ -16,20 +16,68 @@
 
   .left {
     border-right: 1px solid variables.$white;
+    position: relative;
+
+    svg {
+      right: -1px;
+    }
   }
 
   .right {
     border-left: 1px solid variables.$white;
+    position: relative;
+
+    svg {
+      left: -1px;
+    }
+  }
+
+  .left,
+  .right {
+    svg {
+      position: absolute;
+      top: 50%;
+      margin-top: -250px;
+      width: 75%;
+      stroke-width: 3px;
+
+      path {
+        display: none;
+      }
+    }
   }
 
   .img {
     position: absolute;
-    height: 150px;
-    width: 150px;
     left: 50%;
     margin-left: -75px;
     top: 50%;
-    margin-top: -75px;
-    background-color: variables.$white;
+    margin-top: -52.5px;
+
+    img {
+      width: 150px;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .loadingScreen {
+    .left,
+    .right {
+      svg {
+        stroke-width: 1px;
+      }
+    }
+
+    .img {
+      margin-left: -150px;
+      margin-top: -104.97px;
+
+      img {
+        width: 300px;
+        height: auto;
+      }
+    }
   }
 }
