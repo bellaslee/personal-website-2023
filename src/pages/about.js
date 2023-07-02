@@ -80,7 +80,6 @@ function AboutArt() {
           end: "bottom bottom",
           pin: art,
           scrub: 0.5,
-          markers: true,
         },
         xPercent: window.innerWidth > 992 ? 15 : 0,
         y: window.innerWidth > 992 ? -ww.clientHeight * 0.73 : 0,
