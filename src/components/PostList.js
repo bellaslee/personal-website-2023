@@ -1,14 +1,33 @@
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
 import Meta from "./Meta";
 import PostItem from "./PostItem";
+import BackButton from "./BackButton";
 import styles from "@/styles/Blog.module.scss";
 import tagList from "@/data/tags.json";
+import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
-export default function PostList({ posts, tags }) {
+export default function PostList({ posts, tags, header, back }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentPageIndex, setCurrentPageIndex] = useState(1);
+
+  const [blog, setBlog] = useState();
+
+  // useIsomorphicLayoutEffect(() => {
+  //   if (!blog) return;
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(blog, {
+  //       duration: 0.7,
+  //       yPercent: 2,
+  //       opacity: 0,
+  //       filter: "blur(5px)"
+  //     })
+  //   }, blog)
+
+  //   return () => ctx.revert();
+  // }, [blog])
 
   const loadMorePosts = async () => {
     const res = await fetch(`/api/posts?page=${currentPageIndex + 1}`);
@@ -26,19 +45,28 @@ export default function PostList({ posts, tags }) {
     <PostItem key={post.slug} post={post} />
   ))
 
+  const renderHeader = (
+    <div className={styles.header}>
+      <Link href="../../blog" className="fancy normal"><h1>Blog</h1></Link>
+      {tags ? <p>Filter by tag: {renderTagLinks}</p> : ''}
+    </div>
+  )
+
+  const renderLoadMore = (
+    <button className={styles.button} onClick={loadMorePosts}>
+      Load more
+    </button>
+  )
+
   return (
     <>
       <Meta title="Blog | Bella Lee" />
-      <section>
+      <section ref={setBlog}>
         <div className="content">
-          <div className={styles.header}>
-            <Link href="../../blog" className="fancy normal"><h1 className={styles.title}>Blog</h1></Link>
-            {tags ? <p>Filter by tag: {renderTagLinks}</p> : ''}
-          </div>
+          {back ? <BackButton /> : ''}
+          {header ? renderHeader : ''}
           {renderPosts}
-          <button className={styles.button} onClick={loadMorePosts}>
-            Load more
-          </button>
+          {header ? renderLoadMore : ''}
         </div>
       </section>
     </>

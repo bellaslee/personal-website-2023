@@ -17,27 +17,6 @@ export default function LoadingScreen({ done, setHasShownLoader }) {
     if (done) {
       animate();
     }
-
-    // if (!left || !right || !img) return;
-    // gsap
-    //   .timeline({
-    //     defaults: {
-    //       duration: 1,
-    //       ease: 'power1.out'
-    //     }
-    //   })
-    //   .to(img, {
-    //     y: '-75vh',
-    //     display: 'none'
-    //   })
-    //   .to(left, {
-    //     x: '-100%',
-    //     display: 'none'
-    //   })
-    //   .to(right, {
-    //     x: '100%',
-    //     display: 'none'
-    //   }, '<')
   }, [done]);
 
   const drawSvg = (ref) => {

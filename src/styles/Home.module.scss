@@ -10,8 +10,20 @@
   }
 }
 
+section {
+    &.projects {
+      min-height: 70vh;
+    }
+  }
+
 @media (min-width: 992px) {
   .hero {
     min-height: 85vh;
+  }
+
+  section {
+    &.projects {
+      min-height: 70vh;
+    }
   }
 }

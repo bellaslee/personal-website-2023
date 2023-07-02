@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { getPosts } from "@/helpers/utils";
 import tagList from "@/data/tags.json"
 import PostList from "@/components/PostList";
-import { useRouter } from "next/router";
 
 export const getStaticProps = ({ params }) => {
   const posts = getPosts(1, params.tag);
@@ -31,6 +30,6 @@ export const getStaticPaths = () => {
 
 export default function Tags({ posts }) {
   return (
-    <PostList posts={posts} tags={false} />
+    <PostList posts={posts} back header />
   );
 };

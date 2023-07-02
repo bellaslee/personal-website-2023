@@ -4,6 +4,7 @@ import React from "react";
 import { getParsedFileContentBySlug, renderMarkdown } from "@/helpers/markdown";
 import { FormatMeta } from "@/components/FormatMeta";
 import styles from "@/styles/Blog.module.scss";
+import BackButton from "@/components/BackButton";
 
 const POST_DIR = path.join(process.cwd(), 'posts/');
 
@@ -39,6 +40,7 @@ export default function Post({ data, content }) {
     <>
       <section>
         <div className="content">
+          <BackButton />
           <div className={styles.header}>
             <h1 className={styles.title}>{data.title}</h1>
             <FormatMeta date={data.date} tags={data.tags} />

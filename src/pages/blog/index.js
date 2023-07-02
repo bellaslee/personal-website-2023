@@ -14,6 +14,6 @@ export const getStaticProps = () => {
 
 export default function Blog({ posts }) {
   return (
-    <PostList posts={posts} tags={true} />
+    <PostList posts={posts} tags header />
   );
 };
