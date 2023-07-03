@@ -4,7 +4,7 @@ export default function Footer({ font }) {
   return (
     <footer className={font.className}>
       <ul>
-        <li>Email</li>
+        <li><span data-tooltip="jk please don't email me" data-tooltip-position="top">Email</span></li>
         <li>
           <a href="https://www.linkedin.com/in/bellasylee/" className="fancy">
             Linkedin

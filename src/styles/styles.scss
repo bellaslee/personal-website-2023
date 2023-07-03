@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -109,6 +110,61 @@ footer {
 
   p {
     text-align: center;
+  }
+
+  [data-tooltip] {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+    padding: 4px;
+
+    &::before {
+      content: attr(data-tooltip);
+      display: none;
+      position: absolute;
+      background: #000;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      min-width: 100px;
+      text-align: center;
+      border-radius: 4px;
+
+      left: 50%;
+      -ms-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+      bottom: 100%;
+      margin-bottom: 6px;
+    }
+
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+
+      left: 50%;
+      margin-left: -6px;
+
+      bottom: 100%;
+      border-width: 6px 6px 0;
+      border-top-color: #000;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        display: block;
+        z-index: 50;
+      }
+    }
   }
 }
 
