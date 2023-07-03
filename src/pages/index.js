@@ -71,7 +71,7 @@ export default function Home({ hasShownLoader, setHasShownLoader, posts }) {
 
       <section className={`${styles.projects} bg-black`}>
         <h1>Featured Projects</h1>
-        <PostList posts={posts} />
+        <PostList posts={posts} selectedTag="featured" />
       </section>
     </>
   )

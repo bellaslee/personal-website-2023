@@ -8,10 +8,12 @@ import Meta from "@/components/Meta";
 
 export const getStaticProps = ({ params }) => {
   const posts = getPosts(1, params.tag);
+  const selectedTag = params.tag;
 
   return {
     props: {
       posts,
+      selectedTag
     },
   };
 };
@@ -31,12 +33,12 @@ export const getStaticPaths = () => {
   };
 }
 
-export default function Tags({ posts }) {
+export default function Tags({ posts, selectedTag }) {
   return (
     <>
       <Meta title="Tags | Bella Lee" />
       <section>
-        <PostList posts={posts} back header />
+        <PostList posts={posts} selectedTag={selectedTag} back header />
       </section>
     </>
   );

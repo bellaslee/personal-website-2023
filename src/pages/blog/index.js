@@ -20,7 +20,7 @@ export default function Blog({ posts }) {
     <>
       <Meta title="Blog | Bella Lee" />
       <section>
-        <PostList posts={posts} tags header />
+        <PostList posts={posts} header />
       </section>
     </>
   );

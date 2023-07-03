@@ -12,7 +12,7 @@ import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function PostList({ posts, tags, header, back }) {
+export default function PostList({ posts, header, back, selectedTag }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentPageIndex, setCurrentPageIndex] = useState(1);
 
@@ -33,12 +33,11 @@ export default function PostList({ posts, tags, header, back }) {
     }, blog)
 
     return () => ctx.revert();
-  }, [blog])
+  }, [blog, currentPageIndex])
 
   const loadMorePosts = async () => {
-    console.log('called')
-
-    const res = await fetch(`/api/posts?page=${currentPageIndex + 1}`);
+    const fetchUrl = selectedTag === undefined ? `/api/posts?page=${currentPageIndex + 1}` : `/api/posts?page=${currentPageIndex + 1}?tag=${selectedTag}`
+    const res = await fetch(fetchUrl);
     const posts = await res.json();
 
     setFilteredPosts((_posts) => [..._posts, ...posts]);
@@ -56,7 +55,7 @@ export default function PostList({ posts, tags, header, back }) {
   const renderHeader = (
     <div className={styles.header}>
       <Link href="../../blog" className="fancy normal"><h1>Blog</h1></Link>
-      {tags ? <p>Filter by tag: {renderTagLinks}</p> : ''}
+      {selectedTag === undefined ? <p>Filter by tag: {renderTagLinks}</p> : ''}
     </div>
   )
 
