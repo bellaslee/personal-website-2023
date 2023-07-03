@@ -4,9 +4,12 @@ import styles from '@/styles/Blog.module.scss';
 
 export function FormatMeta({ date, tags }) {
   const newDate = new Date(Date.parse(date)).toLocaleString('en-us', { month: 'short', day: 'numeric', year: 'numeric' });
-  const tagLinks = tags?.map((tag) => {
+  const tagLinks = tags?.map((tag, index) => {
     return (
-      <Link key={tag} href={`../../blog/tags/${tag}`} className={styles.tag}>{tag}</Link>
+      <span key={tag} className={styles.tag}>
+        {tag}
+        {index === tags.length - 1 ? '' : ','}
+      </span>
     )
   })
   return <p className={styles.meta}>Published on: {newDate} • Tags: {tagLinks ? tagLinks : 'none'}</p>;

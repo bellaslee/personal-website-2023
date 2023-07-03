@@ -71,7 +71,6 @@ export default function PostList({ posts, header, back, selectedTag }) {
         {back ? <BackButton /> : ''}
         {header ? renderHeader : ''}
         {renderPosts}
-        {/* {header ? renderLoadMore : ''} */}
       </div>
     </>
   );
