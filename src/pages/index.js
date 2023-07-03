@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +11,7 @@ import PostList from '@/components/PostList';
 import { getPosts } from '@/helpers/utils';
 
 export const getStaticProps = () => {
-  const posts = getPosts(1, 'projects');
+  const posts = getPosts(1, 'featured');
 
   return {
     props: {

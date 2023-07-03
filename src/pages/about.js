@@ -60,8 +60,8 @@ function AboutIntro() {
       {/* </div> */}
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
-        <p>I&apos;m a freelance illustrator, Informatics student, web developer, and Preisdent of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading (the social media platform that I&apos;m most active on
-          is actually <a href="https://www.goodreads.com/bellalee_" target="_blank" rel="noreferrer">Goodreads</a>!</p>
+        <p>I&apos;m a freelance illustrator, Informatics student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading (the social media platform that I&apos;m most active on
+          is actually <a href="https://www.goodreads.com/bellalee_" target="_blank" rel="noreferrer">Goodreads</a>)!</p>
       </div>
     </section>
   )
@@ -110,7 +110,7 @@ function AboutArt() {
       <div className={styles.content} ref={setArtContent}>
         <p>Outside of school, you can find me holed up at home reading and drawing, or vending at a local makers fair. So far, I&apos;ve vended at two UW Makers&apos; Fairs and one Husky Expo. I hope to vend at a bigger convention some time in the near future!</p>
 
-        <p>When the inspiration hits me, I run an art Instagram account <a href="https://instagram.com/peachyxin">@peachyxin</a>. Currently, my biggest inspirations are <cite>Trigun</cite>, <cite>Spiderman: Across the Spider-Verse</cite>, and <cite>Jojo&apos;s Bizarre Adventure</cite>! I&apos;ll absolutely fall in love with anything that has a good soundtrack and fluid animation. I especially enjoy themes of love, fate, eternity, and loss in art.</p>
+        <p>When the inspiration hits me, I run an art Instagram account. Currently, my biggest inspirations are <cite>Trigun</cite>, <cite>Spiderman: Across the Spider-Verse</cite>, and <cite>Jojo&apos;s Bizarre Adventure</cite>! I&apos;ll absolutely fall in love with anything that has a good soundtrack and fluid animation. I especially enjoy themes of love, fate, eternity, and loss in art.</p>
 
         <p>Some fun projects that I&apos;ve worked on in the past include page art and merch for fanzines, selling my own acrylic keychains, and doing a commission for someone&apos;s DND campaign. I also like giving shirts I don&apos;t wear anymore new lives by drawing on them with my own designs.</p>
       </div>
