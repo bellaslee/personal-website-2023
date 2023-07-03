@@ -19,7 +19,9 @@ export default function Blog({ posts }) {
   return (
     <>
       <Meta title="Blog | Bella Lee" />
-      <PostList posts={posts} tags header />
+      <section>
+        <PostList posts={posts} tags header />
+      </section>
     </>
   );
 };

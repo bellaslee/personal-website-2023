@@ -7,7 +7,10 @@ import PostItem from "./PostItem";
 import BackButton from "./BackButton";
 import styles from "@/styles/Blog.module.scss";
 import tagList from "@/data/tags.json";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function PostList({ posts, tags, header, back }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -15,21 +18,26 @@ export default function PostList({ posts, tags, header, back }) {
 
   const [blog, setBlog] = useState();
 
-  // useIsomorphicLayoutEffect(() => {
-  //   if (!blog) return;
-  //   const ctx = gsap.context(() => {
-  //     gsap.from(blog, {
-  //       duration: 0.7,
-  //       yPercent: 2,
-  //       opacity: 0,
-  //       filter: "blur(5px)"
-  //     })
-  //   }, blog)
+  useIsomorphicLayoutEffect(() => {
+    if (!blog) return;
+    const ctx = gsap.context(() => {
+      gsap.to(blog, {
+        scrollTrigger: {
+          target: blog,
+          start: "75% 60%",
+          onEnter: () => {
+            loadMorePosts();
+          }
+        },
+      })
+    }, blog)
 
-  //   return () => ctx.revert();
-  // }, [blog])
+    return () => ctx.revert();
+  }, [blog])
 
   const loadMorePosts = async () => {
+    console.log('called')
+
     const res = await fetch(`/api/posts?page=${currentPageIndex + 1}`);
     const posts = await res.json();
 
@@ -60,14 +68,12 @@ export default function PostList({ posts, tags, header, back }) {
 
   return (
     <>
-      <section ref={setBlog}>
-        <div className="content">
-          {back ? <BackButton /> : ''}
-          {header ? renderHeader : ''}
-          {renderPosts}
-          {header ? renderLoadMore : ''}
-        </div>
-      </section>
+      <div className="content" ref={setBlog}>
+        {back ? <BackButton /> : ''}
+        {header ? renderHeader : ''}
+        {renderPosts}
+        {/* {header ? renderLoadMore : ''} */}
+      </div>
     </>
   );
 }

@@ -11,10 +11,14 @@
 }
 
 section {
-    &.projects {
-      min-height: 70vh;
+  &.projects {
+    padding: 2rem;
+
+    .content {
+      padding: 0;
     }
   }
+}
 
 @media (min-width: 992px) {
   .hero {
@@ -23,7 +27,7 @@ section {
 
   section {
     &.projects {
-      min-height: 70vh;
+      min-height: 85vh;
     }
   }
 }

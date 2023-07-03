@@ -34,14 +34,9 @@ export function getPosts(pageIndex, tag) {
       }
     })
     .sort((a, b) => {
-      const aDate = new Date(a.data.publishedOn);
-      const bDate = new Date(b.data.publishedOn);
-      if (aDate > bDate) {
-        return -1;
-      } else if (aDate === bDate) {
-        return 0;
-      }
-      return 1;
+      const aDate = new Date(a.data.date);
+      const bDate = new Date(b.data.date);
+      return bDate - aDate;
     });
 
   return filterPostsByPageIndex(posts, pageIndex);

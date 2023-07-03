@@ -35,7 +35,9 @@ export default function Tags({ posts }) {
   return (
     <>
       <Meta title="Tags | Bella Lee" />
-      <PostList posts={posts} back header />
+      <section>
+        <PostList posts={posts} back header />
+      </section>
     </>
   );
 };
