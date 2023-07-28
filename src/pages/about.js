@@ -60,8 +60,7 @@ function AboutIntro() {
       {/* </div> */}
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
-        <p>I&apos;m a freelance illustrator, Informatics student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading (the social media platform that I&apos;m most active on
-          is actually <a href="https://www.goodreads.com/bellalee_" target="_blank" rel="noreferrer">Goodreads</a>)!</p>
+        <p>I&apos;m a freelance illustrator, Informatics student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading!</p>
       </div>
     </section>
   )
