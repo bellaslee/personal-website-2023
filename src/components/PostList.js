@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
-import Meta from "./Meta";
 import PostItem from "./PostItem";
 import BackButton from "./BackButton";
 import styles from "@/styles/Blog.module.scss";
@@ -27,7 +26,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
           start: "75% 60%",
           onEnter: () => {
             loadMorePosts();
-          }
+          },
         },
       })
     }, blog)
@@ -36,7 +35,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
   }, [blog, currentPageIndex])
 
   const loadMorePosts = async () => {
-    const fetchUrl = selectedTag === undefined ? `/api/posts?page=${currentPageIndex + 1}` : `/api/posts?page=${currentPageIndex + 1}?tag=${selectedTag}`
+    const fetchUrl = selectedTag === undefined ? `/api/posts?page=${currentPageIndex + 1}` : `/api/posts?page=${currentPageIndex + 1}&tag=${selectedTag}`;
     const res = await fetch(fetchUrl);
     const posts = await res.json();
 
@@ -45,24 +44,20 @@ export default function PostList({ posts, header, back, selectedTag }) {
   };
 
   const renderTagLinks = tagList.map((tag) => {
-    return <Link key={tag} href={`../../blog/tags/${tag}`} className={styles.tag}>{tag}</Link>
+    return <Link key={tag} href={`../../blog/tags/${tag}`} className={styles.tag}>#{tag}</Link>
   });
 
   const renderPosts = filteredPosts?.map((post) => (
     <PostItem key={post.slug} post={post} />
   ))
 
+  const title = selectedTag !== undefined ? `#${selectedTag}` : 'Blog'
+  
   const renderHeader = (
     <div className={styles.header}>
-      <Link href="../../blog" className="fancy normal"><h1>Blog</h1></Link>
+      <Link href="../../blog" className="fancy normal"><h1>{title}</h1></Link>
       {selectedTag === undefined ? <p>Filter by tag: {renderTagLinks}</p> : ''}
     </div>
-  )
-
-  const renderLoadMore = (
-    <button className={styles.button} onClick={loadMorePosts}>
-      Load more
-    </button>
   )
 
   return (

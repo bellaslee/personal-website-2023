@@ -7,7 +7,7 @@ export function FormatMeta({ date, tags }) {
   const tagLinks = tags?.map((tag, index) => {
     return (
       <span key={tag} className={styles.tag}>
-        {tag}
+        #{tag}
         {index === tags.length - 1 ? '' : ','}
       </span>
     )

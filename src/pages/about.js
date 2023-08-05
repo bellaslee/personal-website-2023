@@ -1,12 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import wolfwood from "../../public/img/wolfwood.jpeg";
 import angel from "../../public/img/angel.png";
@@ -51,13 +48,11 @@ function AboutIntro() {
 
   return (
     <section className={styles.intro} ref={setIntro}>
-      {/* <div className={styles.imgWrapper}> */}
       <Image
         ref={setAngelRef}
         src={angel}
         alt="Angel Devil from Chainsaw Man"
         priority />
-      {/* </div> */}
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
         <p>I&apos;m a freelance illustrator, Informatics student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I love fingerstyle guitar, singing, and reading!</p>
@@ -96,7 +91,7 @@ function AboutArt() {
           end: window.innerWidth > 992 ? "bottom top" : "bottom 80%",
           scrub: 0.5
         },
-        filter: "blur(10px)",
+        // filter: "blur(10px)",
       })
     }, art)
 
@@ -117,39 +112,12 @@ function AboutArt() {
   )
 }
 
-function AboutBooks() {
-  return (
-    <section className={styles.books}>
-      <div className={styles.panel}>
-        <div className={styles.content}>
-          <p className="big">
-            Since I can&apos;t shut up about the books I read, I guess I should recommend some, right? Here are some of my all-time favorites! <FontAwesomeIcon icon={faArrowRight} />
-          </p>
-          {/* <ol>
-          <li><cite>This Is How You Lose the Time War</cite> by Amal El-Mohtar and Max Gladstone</li>
-          <li><cite>The Night Circus</cite> by Erin Morgenstern</li>
-          <li><cite>Demian: The Story of Emil Sinclair&apos;s Youth</cite> by Hermann Hesse</li>
-          <li><cite>Circe</cite> by Madeline Miller</li>
-          <li><cite>The Alchemist</cite> by Paulo Coelho</li>
-          <li><cite>The Picture of Dorian Gray</cite> by Oscar Wilde</li>
-          <li><cite>The Count of Monte Cristo</cite> by Alexandre Dumas</li>
-        </ol> */}
-        </div>
-      </div>
-      <div className={styles.panel}>
-
-      </div>
-    </section>
-  )
-}
-
 export default function About() {
   return (
     <>
       <Meta title="About | Bella Lee" />
       <AboutIntro />
       <AboutArt />
-      {/* <AboutBooks /> */}
     </>
   )
 }
