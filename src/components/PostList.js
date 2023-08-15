@@ -14,6 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function PostList({ posts, header, back, selectedTag }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentPageIndex, setCurrentPageIndex] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [noMorePosts, setNoMorePosts] = useState(false);
 
   const [blog, setBlog] = useState();
 
@@ -36,9 +38,14 @@ export default function PostList({ posts, header, back, selectedTag }) {
 
   const loadMorePosts = async () => {
     const fetchUrl = selectedTag === undefined ? `/api/posts?page=${currentPageIndex + 1}` : `/api/posts?page=${currentPageIndex + 1}&tag=${selectedTag}`;
+    !noMorePosts ? setIsLoading(true) : null;
     const res = await fetch(fetchUrl);
     const posts = await res.json();
 
+    setIsLoading(false);
+    if (posts.length === 0) {
+      setNoMorePosts(true);
+    }
     setFilteredPosts((_posts) => [..._posts, ...posts]);
     setCurrentPageIndex((_pageIndex) => _pageIndex + 1);
   };
@@ -52,7 +59,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
   ))
 
   const title = selectedTag !== undefined ? `#${selectedTag}` : 'Blog'
-  
+
   const renderHeader = (
     <div className={styles.header}>
       <Link href="../../blog" className="fancy normal"><h1>{title}</h1></Link>
@@ -66,6 +73,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
         {back ? <BackButton /> : ''}
         {header ? renderHeader : ''}
         {renderPosts}
+        {isLoading ? 'Loading posts...' : ''}
       </div>
     </>
   );
