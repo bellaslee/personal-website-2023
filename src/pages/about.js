@@ -55,7 +55,7 @@ function AboutIntro() {
         priority />
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
-        <p>I&apos;m a freelance illustrator, university student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I&apos;m majoring in Informatics and minoring in Comparative Literature. I love examining the intersection between technology, society, and culture, as well as analyzing how similar themes manifest in literature across time and space. Some books that I&apos;ve enjoyed recently include <cite>This Is How You Lose the Time War</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Fear and Trembling</cite>, <cite>The Night Circus</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
+        <p>I&apos;m a freelance illustrator, university student, web developer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I&apos;m majoring in Informatics and minoring in Comparative Literature. I love examining the intersection between technology, society, and culture, as well as analyzing how similar themes manifest in literature across time and space. Some books that I&apos;ve enjoyed recently include <cite>This Is How You Lose the Time War</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Omeros</cite>, <cite>The Night Circus</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
       </div>
     </section>
   )
