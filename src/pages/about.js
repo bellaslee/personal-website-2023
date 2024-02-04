@@ -55,7 +55,9 @@ function AboutIntro() {
         priority />
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
-        <p>I&apos;m a freelance illustrator, university student, technical writer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I&apos;m majoring in Informatics and minoring in Comparative Literature. I love examining the intersection between technology, society, and culture, as well as analyzing how similar themes manifest in literature across time and space. Some books that I&apos;ve enjoyed recently include <cite>This Is How You Lose the Time War</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Omeros</cite>, <cite>The Night Circus</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
+        <p>I&apos;m a freelance illustrator, university student, technical writer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>. I&apos;m majoring in Informatics and minoring in Comparative Literature. I love examining the intersection between technology, society, and culture, as well as analyzing how similar themes manifest in literature across time and space.</p>
+        <p>Everyone has a story to tell. I strive to understand, empathize with, and incorporate people’s diverse voices and experiences as the foundation for a good information experience in every project I work on.</p>
+        <p>Some books that I&apos;ve enjoyed recently include <cite>This Is How You Lose the Time War</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Giovanni&apos;s Room</cite>, <cite>Crime and Punishment</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
       </div>
     </section>
   )
@@ -102,9 +104,9 @@ function AboutArt() {
     <section className={styles.art} ref={setArt}>
       <Image ref={setWw} src={wolfwood} alt="Wolfwood from the anime Trigun Stampede" />
       <div className={styles.content} ref={setArtContent}>
-        <p>Outside of school, you can find me holed up at home reading, writing, drawing, or vending at a local makers fair. So far, I&apos;ve vended at two UW Makers&apos; Fairs and one Husky Expo. I hope to vend at a bigger convention some time in the near future!</p>
+        <p>Outside of school, you can find me holed up at home reading, writing, drawing, learning hip-hop dance, or vending at a local makers fair. I hope to vend at a bigger convention some time in the near future!</p>
 
-        <p>When the inspiration hits me, I run an art Instagram account. Currently, my biggest inspirations are <cite>Trigun</cite>, <cite>Spiderman: Across the Spider-Verse</cite>, and <cite>Jojo&apos;s Bizarre Adventure</cite>. I&apos;ll absolutely fall in love with media that has a good soundtrack and fluid animation. I gravitate toward themes of love, fate, eternity, and loss in art, and I like to write about these topics, too.</p>
+        <p>When the inspiration hits me, I run an art Instagram account. Currently, my biggest inspirations are <cite>Trigun</cite>, <cite>Spiderman: Across the Spider-Verse</cite>, and <cite>Jojo&apos;s Bizarre Adventure</cite>. I&apos;ll absolutely fall in love with any media that has a good soundtrack and fluid animation. I gravitate toward themes of love, fate, eternity, and loss in art, and I like to write about these topics, too.</p>
 
         <p>Some fun projects that I&apos;ve worked on in the past include page art and merch for fanzines, selling my own acrylic keychains, and doing a commission for someone&apos;s DND campaign. I also like giving clothes I don&apos;t wear anymore new lives by drawing on them with my own designs.</p>
       </div>

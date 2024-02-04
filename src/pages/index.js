@@ -59,7 +59,7 @@ export default function Home({ hasShownLoader, setHasShownLoader, posts }) {
       <section className={`${styles.hero}`} ref={setHero}>
         <div>
           <p className="big">
-            Hello! I am a junior at the University of Washington majoring in Informatics. I hope to make information more accessible, intuitive, and enjoyable to consume through my work.
+            Hello! I am a junior studying Informatics at the University of Washington. I hope to make information more accessible, intuitive, and enjoyable through my work.
           </p>
           <p>
             <Link href="/about" className="fancy">
