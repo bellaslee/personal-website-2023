@@ -36,7 +36,7 @@ export const getStaticPaths = () => {
 export default function Tags({ posts, selectedTag }) {
   return (
     <>
-      <Meta title="Tags | Bella Lee" />
+      <Meta title="Blog | Tags" />
       <section>
         <PostList posts={posts} selectedTag={selectedTag} back header />
       </section>

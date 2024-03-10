@@ -55,7 +55,7 @@ function AboutIntro() {
         priority />
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
-        <p>I&apos;m a junior at the University of Washington majoring in Informatics and minoring in Comparative Literature! My dream is to make information more intuitive, accessible, and enjoyable by bridging the gap between people and technology.
+        <p>I&apos;m a junior at the University of Washington majoring in Informatics and minoring in Comparative Literature. My dream is to make information more intuitive, accessible, and enjoyable by bridging the gap between people and technology.
           I&apos;m also a freelance illustrator, technical writer, and President of <a href="https://instagram.com/smirk_uw">Smirk UW</a>.</p>
         <p>Everyone has a story to tell. I strive to understand, empathize with, and incorporate people’s diverse voices and experiences as the foundation for a good information experience in every project I work on.</p>
 
@@ -120,7 +120,7 @@ function AboutArt() {
 export default function About() {
   return (
     <>
-      <Meta title="About | Bella Lee" />
+      <Meta title="About" />
       <AboutIntro />
       <AboutArt />
     </>

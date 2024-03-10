@@ -42,7 +42,7 @@ export const getStaticPaths = () => {
 export default function Post({ data, content }) {
   return (
     <>
-      <Meta title={`${data.title} | Bella Lee`} />
+      <Meta title={`${data.title}`} />
       <section>
         <div className="content">
           <BackButton />

@@ -18,7 +18,7 @@ export const getStaticProps = () => {
 export default function Blog({ posts }) {
   return (
     <>
-      <Meta title="Blog | Bella Lee" />
+      <Meta title="Blog" />
       <section>
         <PostList posts={posts} header />
       </section>
