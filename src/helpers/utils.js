@@ -67,3 +67,4 @@ export function getPost(slug) {
   }
   return {};
 }
+

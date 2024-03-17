@@ -3,6 +3,7 @@ import path from "path";
 import React from "react";
 
 import { getParsedFileContentBySlug, renderMarkdown } from "@/helpers/markdown";
+import { estimateReadTime } from "@/helpers/readtime";
 
 import styles from "@/styles/Blog.module.scss";
 
@@ -40,6 +41,7 @@ export const getStaticPaths = () => {
 }
 
 export default function Post({ data, content }) {
+
   return (
     <>
       <Meta title={`${data.title}`} />
@@ -48,7 +50,7 @@ export default function Post({ data, content }) {
           <BackButton />
           <div className={styles.header}>
             <h1 className={styles.title}>{data.title}</h1>
-            <FormatMeta date={data.date} tags={data.tags} />
+            <FormatMeta date={data.date} tags={data.tags} readTime={estimateReadTime(content)} />
             <blockquote>{data.excerpt}</blockquote>
           </div>
           <article dangerouslySetInnerHTML={{ __html: content }} />

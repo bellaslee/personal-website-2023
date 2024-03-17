@@ -5,6 +5,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FormatMeta } from './FormatMeta';
 import styles from '@/styles/Blog.module.scss';
 import { useRouter } from 'next/router';
+import { estimateReadTime } from '@/helpers/readtime';
 
 export default function PostItem({ post }) {
   const router = useRouter();
@@ -24,13 +25,13 @@ export default function PostItem({ post }) {
   )
 
   return (
-    <article className={styles.postItem} onClick={() => { router.push(`/blog/posts/${post.slug}`)}}>
-      { post.data.thumbnail !== undefined ? renderThumbnail : '' }
-      < div className = { styles.postContent } >
+    <article className={styles.postItem} onClick={() => { router.push(`/blog/posts/${post.slug}`) }}>
+      {post.data.thumbnail !== undefined ? renderThumbnail : ''}
+      < div className={styles.postContent} >
         <h2 className={styles.postTitle}>
           {post.data.title}
         </h2>
-        <FormatMeta date={post.data.date} tags={post.data.tags} />
+        <FormatMeta date={post.data.date} tags={post.data.tags} readTime={estimateReadTime(post.content)} />
         <p>{post.data.excerpt}</p>
         <Link href={`/blog/posts/${post.slug}`} className="fancy">Read more <FontAwesomeIcon icon={faArrowRight} /></Link>
       </div >
