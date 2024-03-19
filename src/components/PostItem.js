@@ -32,7 +32,7 @@ export default function PostItem({ post }) {
           {post.data.title}
         </h2>
         <FormatMeta date={post.data.date} tags={post.data.tags} readTime={estimateReadTime(post.content)} />
-        <p>{post.data.excerpt}</p>
+        <p>{post.data.description}</p>
         <Link href={`/blog/posts/${post.slug}`} className="fancy">Read more <FontAwesomeIcon icon={faArrowRight} /></Link>
       </div >
     </article >

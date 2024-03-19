@@ -51,7 +51,7 @@ export default function Post({ data, content }) {
           <div className={styles.header}>
             <h1 className={styles.title}>{data.title}</h1>
             <FormatMeta date={data.date} tags={data.tags} readTime={estimateReadTime(content)} />
-            <blockquote>{data.excerpt}</blockquote>
+            <blockquote>{data.description}</blockquote>
           </div>
           <article dangerouslySetInnerHTML={{ __html: content }} />
         </div>
