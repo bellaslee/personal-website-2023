@@ -107,9 +107,7 @@ function AboutArt() {
       <div className={styles.content} ref={setArtContent}>
         <p>Beyond academics and work, I enjoy drawing, singing, fingerstyle guitar, hip-hop dance, reading, and diving into new things, like tarot, creative writing, and archaic Chinese. I take pride in my curiosity and eagerness to learn, and I hope to get to know myself, others, and the world better as I progress in my career.</p>
 
-        <p>I gravitate toward themes of love, fate, eternity, and loss in art, and I like to write about these topics, too.</p>
-
-        <p>Books that I&apos;ve enjoyed recently include <cite>The Door</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Giovanni&apos;s Room</cite>, <cite>Crime and Punishment</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
+        <p>I gravitate toward themes of love, fate, eternity, and loss in art, and I like to write about these topics, too. Books that I&apos;ve enjoyed recently include <cite>The Door</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Giovanni&apos;s Room</cite>, <cite>Crime and Punishment</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
 
         <p>Some fun projects that I&apos;ve worked on in the past include page art and merch for fanzines, selling my own acrylic keychains, and doing a commission for someone&apos;s DND campaign. I also like giving clothes I don&apos;t wear anymore new lives by drawing on them with my own designs.</p>
       </div>
