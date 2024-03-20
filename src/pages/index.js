@@ -11,7 +11,7 @@ import PostList from '@/components/PostList';
 import { getPosts } from '@/helpers/utils';
 
 export const getStaticProps = () => {
-  const posts = getPosts(1, 'projects');
+  const posts = getPosts(1, 'featured');
 
   return {
     props: {
@@ -70,8 +70,9 @@ export default function Home({ hasShownLoader, setHasShownLoader, posts }) {
       </section>
 
       <section className={`${styles.projects} bg-black`}>
-        <h1>Projects</h1>
-        <PostList posts={posts} selectedTag="projects" />
+        <h1>Featured posts</h1>
+        <p><Link href="/blog">Go to blog <FontAwesomeIcon icon={faArrowRight} /></Link></p>
+        <PostList posts={posts} selectedTag="featured" />
       </section>
     </>
   )

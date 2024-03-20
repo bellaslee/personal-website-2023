@@ -1,1 +1,9 @@
-["projects", "site-documentation", "essay", "short-story", "literature", "art"]
+[
+  "featured",
+  "projects",
+  "site-documentation",
+  "essay",
+  "prose",
+  "literature",
+  "art"
+]

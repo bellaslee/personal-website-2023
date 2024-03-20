@@ -36,6 +36,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
     return () => ctx.revert();
   }, [blog, currentPageIndex])
 
+
   const loadMorePosts = async () => {
     const fetchUrl = selectedTag === undefined ? `/api/posts?page=${currentPageIndex + 1}` : `/api/posts?page=${currentPageIndex + 1}&tag=${selectedTag}`;
     !noMorePosts ? setIsLoading(true) : null;

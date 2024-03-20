@@ -5,6 +5,11 @@ export default function Footer({ font }) {
     <footer className={font.className}>
       <ul>
         <li>
+          <a href="https://www.goodreads.com/bellalee_" className="fancy">
+            Goodreads
+          </a>
+        </li>
+        <li>
           <a href="https://www.linkedin.com/in/bellasylee/" className="fancy">
             Linkedin
           </a>
@@ -16,6 +21,7 @@ export default function Footer({ font }) {
         </li>
       </ul>
       <div>♡</div>
+      <p>Constructive feedback is welcome and appreciated. You can reach me at bella (at) bellalee (dot) com.</p>
       <p>
         &copy; Bella Lee 2023
       </p>
