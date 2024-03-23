@@ -52,20 +52,31 @@ export default function KindleHighlightFormatter() {
 
   return (
     <>
-      <Meta title="Kindle Highlight to MD Converter" />
+      <Meta
+        title="Kindle Highlight MD Formatter"
+        description="Tool for formatting exported Kindle notebook files as MD notes."
+      />
       <section className={styles.section}>
-        <h2>Kindle Highlight Formatter</h2>
-        <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features include customizable output and support for importing annotations.</p>
-        <p><em>Note</em>: current version does not support importing notes/annotations; they must be inputted manually in your own text editing document.</p>
-        <h3>Instructions</h3>
-        <ol>
-          <li>Open notebook for book on Kindle desktop app</li>
-          <li>Click share button and export notebook to file</li>
-          <li>Open file in broswer</li>
-          <li>Copy text starting from first line with Highlight(...) (<b>do not copy book title!</b>)</li>
-          <li>Paste text in input section</li>
-          <li>Click output box to copy to clipboard</li>
-        </ol>
+        <h2>Kindle Highlight MD Formatter</h2>
+        <div className={styles.container}>
+          <div>
+            <h3>About the tool</h3>
+            <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features include customizable output and support for importing annotations.</p>
+            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now).</p>
+          </div>
+          <div>
+            <h3>Instructions</h3>
+            <ol>
+              <li>Open notebook for book on Kindle desktop app</li>
+              <li>Click share button and export notebook to file</li>
+              <li>Open file in broswer</li>
+              <li>Copy text starting from first line with Highlight(...) (<b>do not copy book title</b>)</li>
+              <li>Paste text in input section</li>
+              <li>Click output box to copy to clipboard</li>
+            </ol>
+
+          </div>
+        </div>
 
         <div className={styles.container}>
           <div>
