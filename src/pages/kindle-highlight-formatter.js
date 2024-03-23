@@ -62,7 +62,7 @@ export default function KindleHighlightFormatter() {
           <div>
             <h3>About the tool</h3>
             <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features include customizable output and support for importing annotations.</p>
-            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now).</p>
+            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now). Current version also only supports documents that 1. do not have chapter titles included 2. only display Location, not Page.</p>
           </div>
           <div>
             <h3>Instructions</h3>
