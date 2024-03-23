@@ -9,29 +9,43 @@ export default function KindleHighlightFormatter() {
   const processInput = (input) => {
     let locations = [];
     let highlights = []
+    let output = [];
     let lines = input.split('\n');
 
-    for (let i = 0; i < lines.length; i++) {
-      if (i % 2 === 0) {
-        if (lines[i].includes("Note")) {
-          i += 1;
-          continue;
-        }
+    let lastType = "";
+    let marker = "";
+    let highlight = "";
 
-        let loc = lines[i].replace(/Highlight\(.*\)/, "").replace("Location", "location:");
-        locations.push(loc);
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].includes("Note")) {
+        i += 1;
+        continue;
+      } else if (lines[i].includes("Highlight")) {
+        let loc = lines[i].replace(/Highlight\(.*\)/, "").replace("Location", "location:").replace("Page", "p.").replace("-", "–");
+        marker = loc;
+        lastType = "marker";
+      } else if (lastType === "highlight" || lastType === "") {
+        output.push('## ' + lines[i]);
+        lastType = "title";
       } else {
-        highlights.push(lines[i]);
+        highlight = lines[i];
+        lastType = "highlight";
+        output.push(highlight + marker);
+        highlight = "";
+        marker = "";
       }
     }
 
-    let output = [];
-    for (let i = 0; i < locations.length; i++) {
-      output.push(highlights[i] + locations[i])
+    let outputString = "";
+    for (let i = 0; i < output.length; i++) {
+      if (output[i].includes('##')) {
+        outputString += output[i] + '\n';
+      } else {
+        outputString += output[i] + '\n\n---\n'
+      }
     }
-    output = output.join('\n\n---\n')
-    console.log(output);
-    setOutputValue(output);
+
+    setOutputValue(outputString);
   }
 
   const handleCopyToClipboard = () => {
@@ -62,7 +76,7 @@ export default function KindleHighlightFormatter() {
           <div>
             <h3>About the tool</h3>
             <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features include customizable output and support for importing annotations.</p>
-            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now). Current version also only supports documents that 1. do not have chapter titles included 2. only display Location, not Page.</p>
+            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now).</p>
           </div>
           <div>
             <h3>Instructions</h3>
