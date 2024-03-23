@@ -1,0 +1,22 @@
+.section {
+  h3 {
+    margin-bottom: 0;
+  }
+
+  ol {
+    margin-top: 0;
+  }
+}
+
+.container {
+  display: flex;
+
+  > div {
+    width: 50%;
+    margin: 12px;
+
+    textarea {
+      width: 100%;
+    }
+  }
+}
