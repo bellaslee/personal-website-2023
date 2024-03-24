@@ -7,8 +7,6 @@ export default function KindleHighlightFormatter() {
   const [outputValue, setOutputValue] = useState("Formatted highlights will appear here");
 
   const processInput = (input) => {
-    let locations = [];
-    let highlights = []
     let output = [];
     let lines = input.split('\n');
 
@@ -18,11 +16,9 @@ export default function KindleHighlightFormatter() {
 
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].includes("Note")) {
-        i += 1;
         continue;
       } else if (lines[i].includes("Highlight")) {
-        let loc = lines[i].replace(/Highlight\(.*\)/, "").replace("Location", "location:").replace("Page", "p.").replace("-", "–");
-        marker = loc;
+        marker = lines[i].replace(/Highlight\(.*\)/, "").replace("Location", "location:").replace("Page", "p.").replace("-", "–");
         lastType = "marker";
       } else if (lastType === "highlight" || lastType === "") {
         output.push('## ' + lines[i]);
@@ -31,6 +27,7 @@ export default function KindleHighlightFormatter() {
         highlight = lines[i];
         lastType = "highlight";
         output.push(highlight + marker);
+        
         highlight = "";
         marker = "";
       }
@@ -58,8 +55,9 @@ export default function KindleHighlightFormatter() {
           console.error('Failed to copy text: ', err);
         });
     } else {
-      console.warn('Clipboard API not supported');
-      alert('Your browser does not support the Clipboard API. Please use a modern browser to copy text.');
+      document.execCommand('copy');
+      // console.warn('Clipboard API not supported');
+      // alert('Your browser does not support the Clipboard API. Please use a modern browser to copy text.');
     }
   };
 
@@ -67,7 +65,7 @@ export default function KindleHighlightFormatter() {
   return (
     <>
       <Meta
-        title="Kindle Highlight MD Formatter"
+        title="Kindle Highlight to MD Formatter"
         description="Tool for formatting exported Kindle notebook files as MD notes."
       />
       <section className={styles.section}>
@@ -75,8 +73,8 @@ export default function KindleHighlightFormatter() {
         <div className={styles.container}>
           <div>
             <h3>About the tool</h3>
-            <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features include customizable output and support for importing annotations.</p>
-            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document (for now).</p>
+            <p>A self-indulgent tool I use to import my Kindle highlights into Obsidian. Future features may include customizable output and support for importing annotations.</p>
+            <p><em>Note</em>: current version does not support importing notes/annotations. These must be inputted manually in your own text editing document.</p>
           </div>
           <div>
             <h3>Instructions</h3>
