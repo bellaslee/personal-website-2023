@@ -11,7 +11,7 @@ export default function Footer({ font }) {
         </li>
         <li>
           <a href="https://www.linkedin.com/in/bellasylee/" className="fancy">
-            Linkedin
+            LinkedIn
           </a>
         </li>
         <li>
