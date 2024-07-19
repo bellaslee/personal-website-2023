@@ -1,0 +1,272 @@
+---
+title: 'WindTech DFMS — Technical Writing'
+date: '2024-03-22T00:00:00.000'
+description:
+  'Non-functional requirements for a drone fleet management system (DFMS)'
+tags: ['featured', 'projects']
+thumbnail: /img/posts/windtech/thumbnail.jpeg
+---
+
+This exerpt is from a project vision and scope document for a drone fleet
+management system, written for the INFO 380: Product and Information System
+Management.
+
+---
+
+## Non-Functional Requirements
+
+### Scalability
+
+We aim to develop a system with future growth in mind. Therefore, the system
+must have a modular architecture and optimized performance and meet the
+following requirements:
+
+- **SCA-1**: The system shall be able to accommodate annual growth of 10% new
+  drone fleets a year across different wind farm locations without
+  user-perceptible performance degradation.
+- **SCA-2**: The system shall scale to handle simultaneous maintenance on at
+  least 50% of the wind turbines at any given location for at least 60 minutes.
+
+### Availability
+
+During working hours, maintenance technicians and other stakeholders must access
+the system to schedule maintenance, deploy drones, and view real-time data to
+make relevant decisions. Thus, the system must be highly available during
+working hours, and at least available most of the time beyond working hours in
+case of emergencies. The system does not have to be as strictly available
+outside of working hours, as technicians are not actively scheduling and
+analyzing maintenance. Since 100% availability would be unrealistic and put
+unnecessary strain on WindTech’s budget, we instead strive for at least 99%
+availability during critical hours to balance the request for “high
+availability” and resource constraints. The system must be able to meet the
+following availability requirements:
+
+- **AVL-1**: The system must be at least 99% available on weekdays between 8
+  a.m. and 5 p.m. GMT+1 on weekdays, and at least 95% available on weekdays
+  between 5 p.m. and midnight GMT+1.
+- **AVL-2**: Scheduled maintenance scheduled for Sundays between 8 p.m. and 3
+  a.m. GMT+1 does not count toward the calculation of availability.
+- **AVL-3**: WindTech shall inform employees one week before scheduled
+  maintenance.
+- **AVL-4**: A user shall not be able to access the system during maintenance
+  and downtime, and shall instead be shown a message indicating when the system
+  is expected to resume operation.
+
+### Interoperability
+
+The DFMS will be integrated with existing WindTech systems, thus we must ensure
+compatibility and functionality across different platforms. Since employees must
+sign into different systems depending on their tasks, single sign-on (SSO)
+support is necessary for consistency and security (see "Security Needs"). The
+DFMS must integrate with maintenance scheduling, weather forecasting, inventory
+management, reporting, training, and more. Therefore, data exchange capabilities
+and API compatibility are crucial.
+
+- **IOP-1**: Requests made to APIs outside of the DFMS to other WindTech systems
+  shall return results within 5 seconds 99% of the time.
+- **IOP-2**: The DFMS API shall respond to external requests within 5 seconds
+  99% of the time.
+- **IOP-3**: The DFMS API shall throw specific error codes, messages, and
+  appropriate responses.
+- **IOP-4**: A user shall log into the DFMS using the same single sign-on login
+  information to access WindTech system information.
+- **IOP-5**: The system shall be able to export data in CSV and JSON formats.
+- **IOP-6**: The DFMS API shall keep an audit trail of API transactions for up
+  to one week.
+- **IOP-7**: The DFMS API and related systems shall adhere to RESTful API
+  standards (see "RESTful APIs").
+- **IOP-8**: In the case of concurrent data updates, the DFMS shall check for
+  inconsistencies and, if found, throw an error requesting the user to conduct
+  manual verification.
+
+### Sustainability
+
+See "Environment and Noise Regulations" for more environmental sustainability
+requirements; this section will focus on sustainable IT (SIT) practices.
+
+Green IT practices are increasingly crucial, as cloud computing produces up to
+3.7% of global greenhouse gas emissions, exceeding that of commercial flights
+(Lavi, 2022). To ensure sustainability, the DFMS must meet the following
+requirements:
+
+- **SIT-1**: The system shall use a data center that can achieve a power usage
+  efficiency (PUE) of 1.2 or less and is located in a region with abundant
+  access to renewable energy (National Renewable Energy Laboratory, n.d.).
+- **SIT-2**: The system shall prohibit consecutive transmissions of redundant
+  data within 10 seconds to minimize network usage.
+- **SIT-3**: Drones shall not be operated in inclement weather or harsh
+  conditions, and shall be regularly maintained (see also SEC-8), to maximize
+  their lifespan.
+
+### Security
+
+Data security is crucial for the DFMS to ensure the integrity and
+confidentiality of operational data, prevent unauthorized access, protect
+against cyber threats, comply with local and federal regulations, and enable
+future capability expansions.
+
+To secure data, the DFMS should adhere to the following requirements:
+
+- **SEC-1**: Data transmission between drones, ground control stations, and
+  services within the DFMS, such as scheduling and maintenance logs, shall be
+  encrypted end-to-end.
+- **SEC-2**: The system shall back up data daily at midnight.
+- **SEC-3**: A user shall only be able to log into the DFMS if they have
+  two-factor authentication.
+- **SEC-4**: A user shall be able to log into the DFMS using WindTech SSO.
+- **SEC-5**: Only users who have Maintenance Technician or Operation Manager
+  permissions shall be able to operate the DFMS.
+- **SEC-6**: Only users who have Maintenance Technician or Operation Manager
+  permissions shall be able to unlock doors to drone storage areas using a
+  security badge.
+- **SEC-7**: The VP of Operations shall conduct compliance checks and audits
+  once every three months.
+- **SEC-8**: Operation Managers shall update drone firmware and software and
+  conduct physical maintenance monthly to mitigate risks of malfunction.
+- **SEC-9**: Drones shall be authenticated before being integrated into the
+  DFMS.
+- **SEC-10**: Drones shall not be able to fly further than the geographical
+  boundaries of WindTech wind farms.
+- **SEC-11**: Maintenance technicians shall conduct spectrum monitoring every 30
+  minutes when drones are deployed.
+- **SEC-12**: If external interference is detected, drone operations shall be
+  paused until the source of interference is verified and removed.
+
+Doing so will protect data and prevent unauthorized drone operations. In
+addition to the above requirements, WindTech should:
+
+- Use secure, cloud-based solutions, such as Amazon Web Services (AWS) or
+  Microsoft Azure, for storing and analyzing sensitive data such as inspection
+  reports, maintenance logs, and data collected during drone operations.
+- Establish contingency plans in the case of drone malfunctions or external
+  threats with the collaboration of the Chief Security Officer and VP of
+  Operations.
+
+## Standards and Compliance
+
+### RESTful APIs
+
+REST stands for Representational State Transfer, and following RESTful API
+standards can help ensure system scalability, flexibility, and independence.
+Compliant APIs adhere to the following principles:
+
+- Uniform interface, where the server returns information in a standardized
+  format
+- Statelessness, where client requests are completed independently
+- Layered system, where the API can work with several servers with multiple
+  components
+- Cacheability, where the client can store some server responses to improve
+  response time
+- Code on demand, where the software code can be temporarily transferred to the
+  client (Amazon, n.d.).
+
+### Accessibility Guidelines
+
+To ensure the accessibility of materials relating to the DFMS project,
+developers must address the following requirements:
+
+- **USE-1**: All drone pilot training materials in audiovisual formats must have
+  transcripts and closed captions.
+- **USE-2**: The information hierarchy in human-machine or human-system
+  interfaces must be programmatically determinable through proper formatting,
+  tagging, and labeling such that they are navigable by screen-reader or other
+  access technologies.
+- **USE-3**: Crucial information, such as warnings and confirmation dialogues,
+  shall be delivered with textual identification in addition to sensory
+  characteristics, like size, color, and sound.
+- **USE-4**: Text and images shall have a contrast ratio of at least 4.5:1.
+- **USE-5**: Text shall be able to be resized up to 200% without additional
+  assistive technologies.
+
+Since system warnings are crucial to upholding the safety of wind turbine
+operations, warning messages and confirmation dialogues must be completely
+accessible to individuals of all abilities. Additionally, computer interfaces
+shall adhere to basic accessibility guidelines as dictated by the Web Content
+Accessibility Guidelines (WCAG) 2 (Web Accessibility Initiative, 2023).
+
+### Drone Regulations & Safety Requirements
+
+Drones are considered unmanned aircraft systems. Because drones used for wind
+turbine maintenance fly close to large structures and may require complex flight
+patterns, they are classified under the “Specific” category. Operations in this
+category are regulated by Unmanned Aircraft System (UAS) Regulation (EU)
+2019/947 Annex A Part B. To comply with the requirements, we must ensure the
+following:
+
+- **SAF-1**: WindTech shall apply for operational authorization with the
+  registration number of the drone operator, the name of the accountable manager
+  or operator, an operational risk assessment, a list of measurable risk
+  mitigation measures proposed by the operator, an operations manual, and a
+  confirmation of appropriate insurance coverage.
+- **SAF-2**: Drone pilots shall complete training before operating drones in
+  areas such as situational awareness and error management; organizational
+  safety culture, operational procedures, and organizational structure; stress
+  management, fatigue, and vigilance; decision-making; automation and philosophy
+  of the use of automation; specific UAS type-related differences; case-based
+  studies; and drone piloting basic skills.
+- **SAF-3**: WindTech shall keep records of drone pilots’ training courses and
+  qualifications for at least three years after they cease employment.
+- **SAF-4**: Interfaces for drone operations shall minimize the risk of pilot
+  error by providing clear, intuitive, and distinguishable labeling and cause
+  minimal fatigue.
+
+The regulation outlines more guidelines that WindTech shall adhere to in its
+operations, but the above constraints are most relevant to the scope of our DFMS
+project (European Union Aviation Safety Agency, 2022, pp. 309–320).
+
+### Environment and Noise Regulations
+
+The EU defines 55 dB as the threshold for noise exposure, measured as an annual
+average between day, evening, and night. However, noise levels above 40 dB are
+known to harm wildlife. Regulations do not impose limit values but rather
+dictate reporting thresholds. Governments must map noise levels, create action
+plans, and designate quiet areas. Most established guidelines and regulations
+focus on transport and industry sources, though some countries also have
+specific regulations for wind turbines (European Environment Agency, 2020).
+
+Though there are no formal regulations for drone noise levels, these guidelines
+serve to help WindTech anticipate future policy developments and operate in good
+faith to protect the environment.
+
+To best adhere to these guidelines, the DFMS shall adhere to the following
+constraints:
+
+- **ENV-1**: Drones deployed for wind turbine inspections shall not fly through
+  government-designated quiet areas.
+- **ENV-2**: Drones operated by WindTech should not generate noise that exceeds
+  55 dB at ground level, measured following the European Union Aviation Safety
+  Agency’s (EASA) noise measurement guidelines.
+
+#### EASA Noise Measurement Guidelines
+
+Typically, drone manufacturers can measure drone noise levels according to EASA
+guidelines and voluntarily provide the data. However, if the manufacturer does
+not provide compliant noise ratings for its product, WindTech can refer to the
+EASA’s Guidelines on Noise Measurement of Unmanned Aircraft Systems Lighter than
+600 kg Operating in the Specific Category (Low and Medium Risk) for testing
+conditions, including terrain, obstacles, temperature, humidity, precipitation,
+windspeeds, and procedures (European Union Aviation Safety Agency, 2023).
+
+### General Data Protection Regulation (GDPR)
+
+Besides employee data, the drone project may also inadvertently collect civilian
+personal data, such as faces, house fronts, and vehicle registration plates
+(DroneRules.eu, 2018). To comply with the EU’s GDPR, the DFMS project must
+adhere to the following requirements:
+
+- **SEC-13**: DFMS administrators shall maintain detailed documentation of
+  collected data to present to regulatory authorities if necessary.
+- **SEC-14**: Only users with Operation Manager and Safety Officer permissions
+  shall have access to employee training histories.
+- **SEC-15**: In addition to safety training, drone operators shall also
+  complete data privacy training (Wolford, n.d.).
+- **SEC-16**: Drone operators shall delete any footage that collects personal
+  data irrelevant to wind turbine inspection, including, but not limited to,
+  faces, house fronts, and vehicle registration plates.
+
+---
+
+Photo by
+[Karsten Würth](https://unsplash.com/@karsten_wuerth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+on
+[Unsplash](https://unsplash.com/photos/white-windmills-on-green-grass-field-under-white-clouds-and-blue-sky-ZKWgoRUYuMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
