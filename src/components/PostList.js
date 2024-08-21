@@ -25,7 +25,7 @@ export default function PostList({ posts, header, back, selectedTag }) {
       gsap.to(blog, {
         scrollTrigger: {
           target: blog,
-          start: "75% 60%",
+          start: "70% 60%",
           onEnter: () => {
             loadMorePosts();
           },

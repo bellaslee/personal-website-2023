@@ -40,21 +40,6 @@
   }
 }
 
-.books {
-  flex-direction: row;
-  align-items: center;
-  overscroll-behavior: none;
-  width: 700%;
-  flex-wrap: nowrap;
-
-  .panel {
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-}
-
 @media (min-width: 580px) {
   .intro,
   .art,
@@ -97,13 +82,12 @@
       width: 50%;
     }
   }
+}
 
-  .books {
-    .panel {
-      flex-direction: row;
-    }
+@media (min-width: 1441px) {
+  .art {
     .content {
-      width: 37%;
+      width: 33%;
     }
   }
 }

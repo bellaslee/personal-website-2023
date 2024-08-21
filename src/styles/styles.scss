@@ -302,3 +302,13 @@ blockquote {
     }
   }
 }
+
+@media (min-width: 1650px) {
+  section {
+    .content {
+      width: 40%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
