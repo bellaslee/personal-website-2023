@@ -35,19 +35,20 @@ header {
   mix-blend-mode: difference;
   z-index: 1000;
 
-  a {
+  a,
+  .title {
     color: variables.$white;
     text-decoration: none;
+  }
 
-    &:hover {
+  a:hover {
+    color: variables.$blue;
+    &::before {
+      content: '♡';
+      position: absolute;
+      top: 0;
+      left: -1rem;
       color: variables.$blue;
-      &::before {
-        content: '♡';
-        position: absolute;
-        top: 0;
-        left: -1rem;
-        color: variables.$blue;
-      }
     }
   }
 

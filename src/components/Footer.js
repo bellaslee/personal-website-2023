@@ -14,11 +14,6 @@ export default function Footer({ font }) {
             LinkedIn
           </a>
         </li>
-        <li>
-          <a href="https://github.com/bellaslee" className="fancy">
-            Github
-          </a>
-        </li>
       </ul>
       <div>♡</div>
       <p>Constructive feedback is welcome and appreciated. You can reach me at bella (at) bellalee (dot) com.</p>
