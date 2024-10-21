@@ -63,8 +63,8 @@ function AboutIntro() {
       <div className={styles.content}>
         <h1>Hi, I&apos;m Bella!</h1>
         <p>My dream is to make information more intuitive, accessible, and enjoyable by bridging the gap between people and technology.</p>
-        <p>Everyone has a story to tell. I strive to understand, empathize with, and incorporate people’s diverse voices and experiences as the foundation for a good information experience in every project I work on.</p>
-
+        <p>Everyone has a story to tell. I strive to understand, empathize with, and incorporate people’s diverse voices and experiences as the foundation for a good information experience.</p>
+        <p><Link href="/blog">See a glimpse of my world through my writing <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></Link></p>
       </div>
     </section>
   )
@@ -111,11 +111,11 @@ function AboutArt() {
     <section className={styles.art} ref={setArt}>
       <Image ref={setWw} src={wolfwood} alt="Wolfwood from the anime Trigun Stampede" />
       <div className={styles.content} ref={setArtContent}>
-        <p>Beyond academics and work, I enjoy drawing, singing, fingerstyle guitar, hip-hop dance, reading, and diving into new things, like tarot, creative writing, and archaic Chinese. I take pride in my curiosity and eagerness to learn, and I hope to get to know myself, others, and the world better as I progress in my career.</p>
+        <p>Beyond work, I enjoy drawing, singing, fingerstyle guitar, hip-hop dance, reading, and diving into new things, like tarot, creative writing, and archaic Chinese. I take pride in my curiosity and eagerness to learn, and I hope to get to know myself, others, and the world better as I progress in my career.</p>
 
-        <p>I gravitate toward themes of love, fate, eternity, and loss in art, and I like to write about these topics, too. Books that I&apos;ve enjoyed recently include <cite>The Door</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Giovanni&apos;s Room</cite>, <cite>Crime and Punishment</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
+        <p>I gravitate toward themes of love, fate, eternity, and loss in art and philosophy. Books that I&apos;ve enjoyed recently include <cite>The Door</cite>, <cite>The Count of Monte Cristo</cite>, <cite>Giovanni&apos;s Room</cite>, <cite>Crime and Punishment</cite>, and <cite>The Flowers of Buffoonery</cite>.</p>
 
-        <p>Some fun projects that I&apos;ve worked on in the past include page art and merch for fanzines, selling my own acrylic keychains, and doing a commission for someone&apos;s DND campaign. I also like giving clothes I don&apos;t wear anymore new lives by drawing on them with my own designs.</p>
+        <p>Some fun projects that I&apos;ve worked on in the past include page art and merch for fanzines, selling my own acrylic keychains, and doing commissions for DND campaigns. I also like giving clothes I don&apos;t wear anymore new lives by drawing my own designs on them.</p>
       </div>
     </section>
   )
