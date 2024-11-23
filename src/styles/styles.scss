@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: variables.$font-open-sans;
   color: variables.$black;
   background-color: variables.$white;
   margin: 0;
@@ -24,6 +24,15 @@ body {
 
 h1 {
   font-size: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: variables.$font-barlow;
 }
 
 header {
@@ -287,6 +296,10 @@ blockquote {
       width: 66%;
       margin-right: auto;
       margin-left: auto;
+
+      &.text {
+        width: 700px;
+      }
 
       p:has(img) {
         display: flex;

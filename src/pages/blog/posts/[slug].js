@@ -46,7 +46,7 @@ export default function Post({ data, content }) {
     <>
       <Meta title={`${data.title}`} />
       <section>
-        <div className="content">
+        <div className="content text">
           <BackButton />
           <div className={styles.header}>
             <h1 className={styles.title}>{data.title}</h1>
